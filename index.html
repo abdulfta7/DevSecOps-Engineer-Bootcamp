@@ -4,568 +4,124 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>CloudNexa | DevSecOps Engineer Bootcamp</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #0f172a;
-  --card: #1e293b;
-  --text: #f8fafc;
-  --muted: #94a3b8;
-  --pri: #0d9488;
-  --pri-light: #2dd4bf;
-  --accent: #f59e0b;
-  --line: #334155;
-  box-sizing: border-box;
-  padding-top: env(safe-area-inset-top,0px);
-  padding-bottom: env(safe-area-inset-bottom,0px);
-}
-:root[data-theme="light"] {
-  --bg: #f8fafc;
-  --card: #ffffff;
-  --text: #0f172a;
-  --muted: #64748b;
-  --pri: #0d9488;
-  --pri-light: #14b8a6;
-  --accent: #d97706;
-  --line: #e2e8f0;
-}
-html {
-  scroll-padding-top: env(safe-area-inset-top,0px);
-  scroll-behavior: smooth;
-}
-* {
-  box-sizing: border-box;
-  margin: 0;
-}
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Cairo', system-ui, sans-serif;
-  line-height: 1.7;
-}
-.wrap {
-  max-width: 1080px;
-  margin: auto;
-  padding: 0 20px;
-}
-.hero {
-  background: radial-gradient(circle at top, #1e293b 0%, #0f172a 100%);
-  color: #fff;
-  padding: 60px 0 72px;
-  text-align: center;
-  border-bottom: 1px solid var(--line);
-}
-.brand {
-  display: inline-block;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-  color: var(--pri-light);
-  border: 1px solid var(--pri-light);
-  padding: 4px 20px;
-  border-radius: 99px;
-  margin-bottom: 20px;
-  background: rgba(45, 212, 191, 0.05);
-}
-.hero h1 {
-  font-size: clamp(32px, 6.5vw, 56px);
-  font-weight: 800;
-  line-height: 1.2;
-}
-.hero h1 span {
-  color: var(--pri-light);
-}
-.hero .tag {
-  color: var(--muted);
-  font-size: 18px;
-  margin: 10px 0 6px;
-  direction: ltr;
-}
-.hero p {
-  max-width: 680px;
-  margin: 12px auto 26px;
-  color: #cbd5e1;
-  font-size: 17px;
-}
-.pills {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 28px;
-}
-.pills b {
-  background: var(--card);
-  border: 1px solid var(--line);
-  padding: 6px 18px;
-  border-radius: 99px;
-  font-weight: 600;
-  font-size: 15px;
-  color: var(--pri-light);
-}
-.pills b.price-badge {
-  background: var(--pri);
-  color: #fff;
-  border-color: var(--pri);
-}
-.btn {
-  display: inline-block;
-  text-decoration: none;
-  font-weight: 800;
-  padding: 12px 30px;
-  border-radius: 12px;
-  font-size: 17px;
-  background: var(--pri-light);
-  color: #0f172a;
-  transition: transform 0.2s, opacity 0.2s;
-}
-.btn:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
-}
-.btn.alt {
-  background: transparent;
-  color: var(--text);
-  border: 1px solid var(--line);
-  margin-inline-start: 10px;
-}
-section {
-  padding: 56px 0 0;
-}
-.eb {
-  color: var(--pri-light);
-  font-weight: 800;
-  font-size: 13px;
-  letter-spacing: 2px;
-  direction: ltr;
-  text-align: right;
-}
-h2 {
-  font-size: 28px;
-  font-weight: 800;
-  margin-bottom: 22px;
-}
-.ov {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 12px;
-  margin-top: -38px;
-  position: relative;
-  z-index: 2;
-}
-.ov div {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-.ov small {
-  display: block;
-  color: var(--muted);
-  font-size: 13px;
-}
-.ov b {
-  font-size: 15px;
-  direction: ltr;
-  display: block;
-  text-align: right;
-  color: var(--text);
-}
-.phs {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-  gap: 16px;
-}
-.a0 { --a: #38bdf8; }
-.a1 { --a: #2dd4bf; }
-.a2 { --a: #4ade80; }
-.a3 { --a: #a78bfa; }
-.a4 { --a: #fbbf24; }
-
-.ph {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-top: 4px solid var(--a);
-  border-radius: 16px;
-  padding: 20px;
-}
-.ph header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 6px;
-}
-.ph .n {
-  flex: none;
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  background: color-mix(in srgb, var(--a) 15%, transparent);
-  color: var(--a);
-  display: grid;
-  place-items: center;
-  font-weight: 800;
-}
-.ph small {
-  color: var(--muted);
-  font-size: 12px;
-  letter-spacing: 1.5px;
-  display: block;
-  line-height: 1.2;
-}
-.ph h3 {
-  font-size: 17px;
-  line-height: 1.35;
-  direction: ltr;
-  text-align: right;
-}
-.ph .h {
-  margin-inline-start: auto;
-  font-size: 13px;
-  color: var(--a);
-  font-weight: 700;
-  white-space: nowrap;
-}
-.ph h4 {
-  font-size: 14px;
-  margin: 14px 0 6px;
-  font-weight: 700;
-}
-.ch {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-.c {
-  display: inline-block;
-  direction: ltr;
-}
-.ch .c {
-  background: color-mix(in srgb, var(--a) 12%, transparent);
-  padding: 2px 10px;
-  border-radius: 6px;
-  font-size: 12.5px;
-}
-.lab {
-  margin-top: 16px;
-  padding: 10px 12px;
-  border: 1px dashed var(--a);
-  border-radius: 10px;
-  font-size: 12.5px;
-  color: var(--muted);
-  text-align: left;
-}
-.lab em {
-  font-style: normal;
-  font-weight: 800;
-  color: var(--a);
-  margin-right: 8px;
-}
-.two {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 16px;
-}
-.box {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 22px;
-}
-.instructor-card {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 20px;
-}
-.instructor-avatar {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: color-mix(in srgb, var(--pri-light) 20%, transparent);
-  color: var(--pri-light);
-  display: grid;
-  place-items: center;
-  font-size: 24px;
-  font-weight: 800;
-  border: 2px solid var(--pri-light);
-  flex-shrink: 0;
-}
-.instructor-info h3 {
-  font-size: 18px;
-  font-weight: 800;
-  margin-bottom: 2px;
-}
-.instructor-info p {
-  color: var(--muted);
-  font-size: 14px;
-  direction: ltr;
-  text-align: right;
-}
-.arch {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  direction: ltr;
-}
-.arch i {
-  font-style: normal;
-  color: var(--muted);
-  line-height: 1;
-}
-.row {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.k {
-  border: 1px solid var(--line);
-  background: var(--bg);
-  padding: 5px 18px;
-  border-radius: 10px;
-  font-size: 14px;
-  font-weight: 600;
-}
-.bar {
-  display: grid;
-  grid-template-columns: 1fr 44px;
-  gap: 2px 10px;
-  align-items: center;
-  margin-bottom: 12px;
-  font-size: 13px;
-}
-.bar span {
-  grid-column: 1/3;
-  direction: ltr;
-  text-align: right;
-  color: var(--muted);
-}
-.bar div {
-  height: 8px;
-  background: var(--line);
-  border-radius: 9px;
-  direction: ltr;
-}
-.bar u {
-  display: block;
-  height: 100%;
-  background: var(--pri-light);
-  border-radius: 9px;
-}
-.bar b {
-  text-align: left;
-  direction: ltr;
-}
-.stk {
-  display: grid;
-  grid-template-columns: 130px 1fr;
-  gap: 10px 14px;
-  font-size: 14px;
-  align-items: baseline;
-}
-.stk dt {
-  color: var(--pri-light);
-  font-weight: 800;
-  direction: ltr;
-  text-align: right;
-}
-.stk dd {
-  direction: ltr;
-  text-align: right;
-  color: var(--muted);
-}
-.car {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-.car .c {
-  background: var(--card);
-  border: 1px solid var(--line);
-  padding: 6px 18px;
-  border-radius: 99px;
-  font-weight: 600;
-  font-size: 15px;
-}
-.book {
-  margin-top: 56px;
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-  border: 1px solid var(--line);
-  color: #fff;
-  border-radius: 22px;
-  padding: 34px 26px;
-  display: grid;
-  gap: 26px;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-}
-.book h2 {
-  color: var(--pri-light);
-}
-.book ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-.book li {
-  padding: 10px 0;
-  border-bottom: 1px solid var(--line);
-  color: #cbd5e1;
-}
-.book li b {
-  color: #fff;
-}
-.price-highlight {
-  color: var(--accent) !important;
-  font-size: 18px;
-}
-.installment-badge {
-  background: rgba(245, 158, 11, 0.15);
-  color: #fbbf24;
-  padding: 2px 8px;
-  border-radius: 6px;
-  font-size: 13px;
-  margin-inline-start: 6px;
-  font-weight: 600;
-}
-.cta {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 12px;
-  text-align: center;
-}
-.phone {
-  font-size: 28px;
-  font-weight: 800;
-  direction: ltr;
-  color: var(--pri-light);
-  letter-spacing: 1px;
-  text-decoration: none;
-}
-.cta .btn {
-  width: 100%;
-}
-footer {
-  text-align: center;
-  color: var(--muted);
-  padding: 32px 0 26px;
-  font-size: 14px;
-}
+:root{--bg:#f4f7f8;--card:#fff;--text:#1f2c38;--muted:#66747f;--pri:#2f7f86;--line:#e0e7ea;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a21;--card:#162630;--text:#e5edf1;--muted:#93a4b0;--pri:#6fbcb8;--line:#243944}}
+:root[data-theme="dark"]{--bg:#0f1a21;--card:#162630;--text:#e5edf1;--muted:#93a4b0;--pri:#6fbcb8;--line:#243944}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--text);font-family:'Cairo',system-ui,sans-serif;line-height:1.7}
+.wrap{max-width:1080px;margin:auto;padding:0 20px}
+.hero{background:linear-gradient(135deg,#12262e,#1d4650);color:#fff;padding:60px 0 72px;text-align:center}
+.brand{display:inline-block;font-weight:800;letter-spacing:1.5px;color:#a9d6d2;border:1px solid #a9d6d255;padding:3px 18px;border-radius:99px;margin-bottom:20px}
+.hero h1{font-size:clamp(32px,6.5vw,56px);font-weight:800;line-height:1.2}
+.hero h1 span{color:#a9d6d2}
+.hero .tag{color:#c9d9df;font-size:18px;margin:8px 0 4px;direction:ltr}
+.hero p{max-width:640px;margin:12px auto 26px;color:#b4c6cd}
+.pills{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
+.pills b{background:#ffffff12;border:1px solid #ffffff22;padding:5px 16px;border-radius:99px;font-weight:600;font-size:15px}
+.btn{display:inline-block;text-decoration:none;font-weight:800;padding:12px 28px;border-radius:12px;font-size:17px;background:#8fcfca;color:#10262c}
+.btn.alt{background:transparent;color:#fff;border:1px solid #ffffff55;margin-inline-start:10px}
+section{padding:56px 0 0}
+.eb{color:var(--pri);font-weight:800;font-size:13px;letter-spacing:2px;direction:ltr;text-align:right}
+h2{font-size:28px;font-weight:800;margin-bottom:22px}
+.ov{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:-38px;position:relative}
+.ov div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.ov small{display:block;color:var(--muted);font-size:13px}
+.ov b{font-size:15px;direction:ltr;display:block;text-align:right}
+.phs{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:16px}
+.a0{--a:#5b8db8}.a1{--a:#4f9d94}.a2{--a:#86a672}.a3{--a:#8b86b8}.a4{--a:#c29a6c}
+.ph{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--a);border-radius:16px;padding:20px}
+.ph header{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.ph .n{flex:none;width:42px;height:42px;border-radius:12px;background:color-mix(in srgb,var(--a) 20%,transparent);color:var(--a);display:grid;place-items:center;font-weight:800}
+.ph small{color:var(--muted);font-size:12px;letter-spacing:1.5px;display:block;line-height:1.2}
+.ph h3{font-size:17px;line-height:1.35;direction:ltr;text-align:right}
+.ph .h{margin-inline-start:auto;font-size:13px;color:var(--a);font-weight:700;white-space:nowrap}
+.ph h4{font-size:14px;margin:14px 0 6px;font-weight:700}
+.ch{display:flex;flex-wrap:wrap;gap:6px;direction:ltr}
+.c{display:inline-block;direction:ltr}
+.ch .c{background:color-mix(in srgb,var(--a) 13%,transparent);padding:1px 10px;border-radius:7px;font-size:12.5px}
+.lab{margin-top:16px;padding:10px 12px;border:1px dashed var(--a);border-radius:10px;font-size:12.5px;color:var(--muted);text-align:left;direction:ltr}
+.lab em{font-style:normal;font-weight:800;color:var(--a);margin-right:8px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+.arch{display:flex;flex-direction:column;align-items:center;gap:4px;direction:ltr}
+.arch i{font-style:normal;color:var(--muted);line-height:1}
+.row{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.k{border:1px solid var(--line);background:var(--bg);padding:5px 18px;border-radius:10px;font-size:14px;font-weight:600}
+.bar{display:grid;grid-template-columns:1fr 44px;gap:2px 10px;align-items:center;margin-bottom:12px;font-size:13px}
+.bar span{grid-column:1/3;direction:ltr;text-align:right;color:var(--muted)}
+.bar div{height:8px;background:var(--line);border-radius:9px;direction:ltr}
+.bar u{display:block;height:100%;background:var(--pri);border-radius:9px}
+.bar b{text-align:left;direction:ltr}
+.stk{display:grid;grid-template-columns:130px 1fr;gap:10px 14px;font-size:14px;align-items:baseline}
+.stk dt{color:var(--pri);font-weight:800;direction:ltr;text-align:right}
+.stk dd{direction:ltr;text-align:right;color:var(--muted)}
+.car{display:flex;flex-wrap:wrap;gap:10px}
+.car .c{background:var(--card);border:1px solid var(--line);padding:6px 18px;border-radius:99px;font-weight:600;font-size:15px}
+.book{margin-top:56px;background:linear-gradient(135deg,#12262e,#1d4650);color:#fff;border-radius:22px;padding:34px 26px;display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.book h2{color:#a9d6d2}
+.book ul{padding:0;margin:0;list-style:none}
+.book li{padding:9px 0;border-bottom:1px solid #ffffff1a;color:#cfdde2}
+.book li b{color:#fff}
+.cta{display:flex;flex-direction:column;justify-content:center;gap:12px;text-align:center}
+.phone{font-size:28px;font-weight:800;direction:ltr;color:#a9d6d2;letter-spacing:1px;text-decoration:none;unicode-bidi:isolate}
+.cta .btn{width:100%}
+footer{text-align:center;color:var(--muted);padding:32px 0 26px;font-size:14px}
 </style>
 </head>
 <body>
-
-<header class="hero">
-  <div class="wrap">
-    <div class="brand">CloudNexa</div>
-    <h1>DevSecOps Engineer <span>Bootcamp</span></h1>
-    <div class="tag">From Code to Cloud — Secure, Automate &amp; Deploy</div>
-    <p>برنامج تدريبي عملي متكامل لإعداد DevSecOps Engineer قادر على بناء Secure CI/CD Pipelines، تأمين Containers وKubernetes، وإدارة Cloud Infrastructure ومراقبة الأنظمة.</p>
-    <div class="pills">
-      <b>⏱ 144 ساعة</b>
-      <b>📅 6 شهور</b>
-      <b>💻 Online</b>
-      <b class="price-badge">💰 8,000 ج.م (متاح تقسيط)</b>
-    </div>
-    <a class="btn" href="#book">احجز مكانك الان</a>
-    <a class="btn alt" href="#phases">استعرض المنهج</a>
-  </div>
-</header>
-
+<header class="hero"><div class="wrap">
+<div class="brand">CloudNexa</div>
+<h1>DevSecOps Engineer <span>Bootcamp</span></h1>
+<div class="tag">From Code to Cloud — Secure, Automate &amp; Deploy</div>
+<p>برنامج تدريبي عملي متكامل لإعداد DevSecOps Engineer قادر على بناء Secure CI/CD Pipelines، تأمين Containers وKubernetes، وإدارة Cloud Infrastructure ومراقبة الأنظمة.</p>
+<div class="pills"><b>⏱ 144 ساعة</b><b>📅 6 شهور</b><b>💻 Online</b><b>💰 8000 جنيه</b><b>🧑‍🏫 Abdoelfatah Mosalm</b></div>
+<a class="btn" href="#book">احجز مكانك</a><a class="btn alt" href="#phases">شوف المنهج</a>
+</div></header>
 <main class="wrap">
-  <div class="ov" id="ov"></div>
-
-  <section>
-    <div class="eb">INSTRUCTOR</div>
-    <h2>المحاضر</h2>
-    <div class="instructor-card">
-      <div class="instructor-avatar">AM</div>
-      <div class="instructor-info">
-        <h3>Abdoelfatah Mosalm</h3>
-        <p>DevSecOps &amp; Cloud Security Specialist</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="eb">LEARNING PATH</div>
-    <h2>مسار التعلم</h2>
-    <div class="box"><div class="arch" id="path"></div></div>
-  </section>
-
-  <section id="phases">
-    <div class="eb">CURRICULUM</div>
-    <h2>13 Phase — من الأساسيات للـ Production</h2>
-    <div class="phs" id="phs"></div>
-  </section>
-
-  <section>
-    <div class="eb">HOURS</div>
-    <h2>توزيع الـ 144 ساعة</h2>
-    <div class="box" id="hrs"></div>
-  </section>
-
-  <section class="two">
-    <div>
-      <div class="eb">CAPSTONE</div>
-      <h2>المشروع النهائي</h2>
-      <div class="box"><div class="arch" id="cap"></div></div>
-    </div>
-    <div>
-      <div class="eb">TECH STACK</div>
-      <h2>الأدوات</h2>
-      <div class="box"><dl class="stk" id="stk"></dl></div>
-    </div>
-  </section>
-
-  <section>
-    <div class="eb">CAREER</div>
-    <h2>فرص الشغل بعد الكورس</h2>
-    <div class="car" id="car"></div>
-  </section>
-
-  <section id="book" class="book">
-    <div>
-      <h2>تفاصيل الحجز والأسعار</h2>
-      <ul>
-        <li><b>الشركة:</b> CloudNexa</li>
-        <li><b>الكورس:</b> DevSecOps Engineer Bootcamp</li>
-        <li><b>المحاضر:</b> Abdoelfatah Mosalm</li>
-        <li><b>المدة:</b> 6 شهور — 144 ساعة</li>
-        <li><b>التدريب:</b> Online — Live + Hands-on</li>
-        <li><b>الاستثمار:</b> <b class="price-highlight">8,000 جنيه مصري</b> <span class="installment-badge">متاح الدفع على دفعات</span></li>
-        <li><b>الشهادة:</b> Certificate of Completion</li>
-      </ul>
-    </div>
-    <div class="cta">
-      <span>للحجز والاستفسار عن أقساط الدفعة الجاية</span>
-      <a class="phone" href="tel:+201554473748">+20 155 447 3748</a>
-      <a class="btn" href="https://wa.me/201554473748">احجز عبر واتساب</a>
-      <a class="btn alt" href="tel:+201554473748" style="margin:0">اتصل بنا الآن</a>
-    </div>
-  </section>
+<div class="ov" id="ov"></div>
+<section><div class="eb">LEARNING PATH</div><h2>مسار التعلم</h2><div class="box"><div class="arch" id="path"></div></div></section>
+<section id="phases"><div class="eb">CURRICULUM</div><h2>13 Phase — من الأساسيات للـ Production</h2><div class="phs" id="phs"></div></section>
+<section><div class="eb">HOURS</div><h2>توزيع الـ 144 ساعة</h2><div class="box" id="hrs"></div></section>
+<section class="two">
+<div><div class="eb">CAPSTONE</div><h2>المشروع النهائي</h2><div class="box"><div class="arch" id="cap"></div></div></div>
+<div><div class="eb">TECH STACK</div><h2>الأدوات</h2><div class="box"><dl class="stk" id="stk"></dl></div></div>
+</section>
+<section><div class="eb">CAREER</div><h2>فرص الشغل بعد الكورس</h2><div class="car" id="car"></div></section>
+<section id="book" class="book" style="margin-top:56px;padding:34px 26px">
+<div><h2>تفاصيل الحجز</h2><ul>
+<li><b>الشركة:</b> CloudNexa</li>
+<li><b>الكورس:</b> DevSecOps Engineer Bootcamp</li>
+<li><b>المدة:</b> 6 شهور — 144 ساعة</li>
+<li><b>التدريب:</b> Online — Live + Hands-on</li>
+<li><b>الشهادة:</b> Certificate of Completion</li>
+<li><b>الإنستراكتور:</b> Abdoelfatah Mosalm</li>
+<li><b>السعر:</b> 8000 جنيه — يمكن الدفع على دفعات أثناء فترة الكورس</li>
+<li><b>المواعيد:</b> تواصل معانا لتفاصيل الدفعة الجاية</li>
+</ul></div>
+<div class="cta"><span>للحجز والاستفسار كلمنا</span>
+<a class="phone" href="tel:+201554473748">+20 155 447 3748</a>
+<a class="btn" href="https://wa.me/201554473748">احجز واتساب</a>
+<a class="btn alt" href="tel:+201554473748" style="margin:0">اتصل الآن</a></div>
+</section>
 </main>
-
 <footer>© CloudNexa · DevSecOps Engineer Bootcamp</footer>
-
 <script>
 const $=i=>document.getElementById(i),S=s=>s.split('·'),ch=s=>S(s).map(t=>`<span class="c">${t}</span>`).join('');
-const OV=[['🎯','المستوى','Beginner → Advanced'],['⏱️','مدة البرنامج','6 Months'],['🕐','إجمالي التدريب','144 Hours'],['👨‍🏫','المحاضر','Abdoelfatah Mosalm'],['💰','التكلفة','8,000 EGP (دفعات)'],['💻','التدريب','Live + Hands-on'],['🚀','Projects','Real-world Projects'],['🏆','Final Project','End-to-End Platform'],['💼','Career Focus','DevSecOps / DevOps / Cloud']];
+const OV=[['🎯','المستوى','Beginner → Advanced'],['⏱️','مدة البرنامج','6 Months'],['🕐','إجمالي التدريب','144 Hours'],['💻','التدريب','Live + Hands-on'],['🧪','Labs','Practical Labs'],['🚀','Projects','Real-world Projects'],['🏆','Final Project','End-to-End DevSecOps Platform'],['📜','Certificate','Certificate of Completion'],['💼','Career Focus','DevSecOps / DevOps / Cloud / Security'],['🧑‍🏫','Instructor','Abdoelfatah Mosalm'],['💰','Price','8000 EGP — Installments available']];
 $('ov').innerHTML=OV.map(o=>`<div><small>${o[0]} ${o[1]}</small><b>${o[2]}</b></div>`).join('');
 const col=a=>a.map(x=>Array.isArray(x)?`<div class="row">${x.map(y=>`<span class="c k">${y}</span>`).join('')}</div>`:`<span class="c k">${x}</span>`).join('<i>↓</i>');
-$('path').innerHTML=col(['DEVSECOPS ENGINEER',['Development','Security','Operations'],'Automation & CI/CD','Cloud & Containers','Kubernetes & GitOps','Monitoring & Incidents','Production Project']);$('cap').innerHTML=col(['Developer','GitHub / GitLab',['SAST · SonarQube','SCA · Snyk'],'Secret Scan','Docker Build','Trivy Scan','SBOM Generation','Image Signing','Harbor / ECR','Argo CD','Kubernetes',['Frontend','Backend'],'Database',['Prometheus → Grafana','Logs → ELK / OpenSearch'],'Microsoft Sentinel','Detection & Response']);
+$('path').innerHTML=col(['DEVSECOPS ENGINEER',['Development','Security','Operations'],'Automation & CI/CD','Cloud & Containers','Kubernetes & GitOps','Monitoring & Incidents','Production Project']);
+$('cap').innerHTML=col(['Developer','GitHub / GitLab',['SAST · SonarQube','SCA · Snyk'],'Secret Scan','Docker Build','Trivy Scan','SBOM Generation','Image Signing','Harbor / ECR','Argo CD','Kubernetes',['Frontend','Backend'],'Database',['Prometheus → Grafana','Logs → ELK / OpenSearch'],'Microsoft Sentinel','Detection & Response']);
 const P=[
 ['Linux, Networking & Security Foundations',14,0,[['🐧 Linux Administration','Linux Architecture·Filesystem·Users & Groups·Permissions·sudo·Processes·Services·systemd·SSH·Bash & Shell Scripting·Logs·Cron Jobs·Troubleshooting·Security Hardening'],['🌐 Networking','OSI & TCP/IP·IPv4 / IPv6·CIDR & Subnetting·TCP / UDP·Ports·DNS·DHCP·HTTP / HTTPS·TLS·Routing·NAT·Firewall·Reverse Proxy·Load Balancing·Troubleshooting'],['🔐 Security Fundamentals','CIA Triad·AAA·Least Privilege·Defense in Depth·Zero Trust·Attack Surface·Vulnerability vs Threat vs Risk·CVE / CVSS·Security Controls']],'Linux Hardening>SSH Keys>Firewall>Network Troubleshooting'],
 ['Git, GitHub & Secure Development',10,0,[['🔀 Git & GitHub','Git Fundamentals·Branches·Merge·Rebase·Tags·Pull Requests·Code Review·Workflows·GitHub / GitLab·Branch Protection'],['🔐 Source Code Security','Secrets in Code·API Keys·Tokens·SSH Keys·.gitignore·Secret Rotation·Secret Scanning·Secure PRs'],['🛡️ Secure Coding','OWASP Top 10·Injection·XSS·Broken Access Control·Auth Failures·Misconfiguration·Cryptographic Failures·Vulnerable Components·Secure Design'],['🧰 Tools','GitHub·GitLab·Gitleaks·Semgrep']],'Developer>Git>Pull Request>Secret Scan>Code Review>Secure Merge'],
 ['CI/CD & DevSecOps Pipeline',14,1,[['🔄 CI/CD Fundamentals','CI vs CD·Pipeline Architecture·Build·Test·Package·Artifact·Deployment·Dev / Staging / Prod·Rollback'],['⚙️ Jenkins','Architecture·Agents·Pipelines·Jenkinsfile·Credentials·Webhooks·Shared Libraries·Pipeline Security'],['🦊 GitLab CI/CD','.gitlab-ci.yml·Stages·Jobs·Variables·Runners·Artifacts·Environments'],['🔐 CI/CD Security','Pipeline Secrets·Least Privilege·Runner & Agent Security·Plugin Security·Build Isolation·Supply Chain Security']],'Build>Test>SAST>SCA>Secret Scan>Docker Build>Container Scan>Registry>Deploy'],
 ['Application Security — SAST / SCA / DAST',14,1,[['🔍 SAST','Source Code Analysis·Security Hotspots·Code Quality·Quality Gates·SonarQube·Semgrep'],['📦 SCA','Direct & Transitive Dependencies·CVEs·Vulnerable Libraries·License Compliance·Snyk·Dependency-Check·Dependabot·npm audit'],['🌐 DAST','Running App Scanning·Web & API Security Testing·Authentication Testing·OWASP ZAP']],'SAST + SCA + Secret Scan>Build App>Deploy>DAST'],
 ['Docker & Container Security',12,2,[['🐳 Docker','Architecture·Images·Containers·Dockerfile·Layers·Networks·Volumes·Compose·Multi-stage Builds·Registry'],['🔐 Docker Security','Non-root·Minimal Images·Hardening·Linux Capabilities·Read-only FS·Secrets·Resource Limits·Isolation·Docker Socket'],['🔎 Scanning & Artifacts','Trivy·CVE Scan·Harbor·JFrog Artifactory·AWS ECR·Image Tagging·Lifecycle·Immutable Artifacts']],'Dockerfile>Docker Build>Trivy>CVE Scan>Pass / Fail'],
-['Software Supply Chain Security',8,2,[['🔗 Topics','Supply Chain·Dependency Attacks·Malicious Packages·Artifact Integrity·Provenance·Verification'],['📋 SBOM & Signing','SBOM·Syft·CycloneDX·SPDX·Trivy·Cosign·Sigstore']],'Build Image>SBOM>Scan>Sign>Registry>Verify>Deploy'],
+['Software Supply Chain Security',8,2,[['🔗 Topics','Supply Chain·Dependency Attacks·Malicious Packages·Artifact Integrity·Provenance·Verification'],['📋 SBOM & Signing','SBOM·Syft·CycloneDX·SPDX·Cosign·Sigstore']],'Build Image>SBOM>Scan>Sign>Registry>Verify>Deploy'],
 ['Kubernetes Security',18,3,[['⎈ Fundamentals','Cluster Architecture·Control Plane·Worker Nodes·Pods·Deployments·Services·Namespaces·ConfigMaps·Secrets·Ingress·StatefulSets·Storage'],['🔐 AuthN · AuthZ · Admission','Authentication·Authorization·Admission Control'],['👤 RBAC','Role·ClusterRole·RoleBinding·ClusterRoleBinding·ServiceAccounts·Least Privilege'],['🛡️ Pod Security','SecurityContext·runAsNonRoot·Capabilities·Read-only FS·Pod Security Standards (Privileged / Baseline / Restricted)'],['🌐 Network Security','NetworkPolicy·Namespace Isolation·Pod-to-Pod Communication·Ingress Security·Service Security']],''],
 ['Cloud Security — AWS',14,3,[['☁️ Fundamentals','Global Infrastructure·Regions·AZs·VPC·Subnets·Route Tables·Internet Gateway·NAT Gateway·Load Balancer'],['🔐 IAM','Users·Groups·Roles·Policies·Least Privilege·MFA·Access Keys·Access Analyzer'],['🛡️ Security Services','KMS·Secrets Manager·CloudTrail·GuardDuty·Inspector·Security Hub·Security Groups·NACL']],'Internet>CloudFront>ALB>Private Subnet>EKS / ECS>Private Database'],
 ['Infrastructure as Code Security',8,3,[['🏗️ Terraform','Providers·Resources·Variables·Outputs·Modules·State·Remote State·Workspaces·AWS Infrastructure'],['🔐 IaC Security','Secrets in Terraform·IAM Misconfiguration·Public Resources·Open Security Groups·Encryption·Checkov·Trivy·Terrascan']],'IaC Scan>Review>Plan>Approval>Apply'],
@@ -574,7 +130,7 @@ const P=[
 ['SIEM & Security Operations',6,4,[['🛡️ SIEM','Logs·Events·Alerts·Incidents·Detection·Investigation·Correlation'],['🔷 Microsoft Sentinel','Data Connectors·Analytics Rules·Workbooks·KQL Fundamentals·Threat Detection·Automation']],'AWS / Linux / K8s / Apps / Firewall>SIEM>Detection>Alert>Investigation>Response'],
 ['Incident Response',0,4,[['🔁 Lifecycle','Preparation·Detection·Analysis·Containment·Eradication·Recovery·Lessons Learned'],['🧪 Practical Scenarios','Compromised Container·Leaked API Key·Vulnerable Docker Image·K8s Misconfiguration·Suspicious AWS Activity·Web App Attack·Unauthorized Access']],'']
 ];
-$('phs').innerHTML=P.map((p,i)=>{const n=i+1;return `<article class="ph a${p[2]}"><header><span class="n">${String(n).padStart(2,'0')}</span><div><small>PHASE ${String(n).padStart(2,'0')}</small><h3>${p[0]}</h3></div><b class="h">${p[1]?p[1]+' ساعة':'ضمن Phase 12'}</b></header>${p[3].map(g=>`#### ${g[0]}</h4><div class="ch">${ch(g[1])}</div>`).join('')}${p[4]?`<div class="lab" dir="ltr"><em>LAB</em>${p[4].split('>').join(' → ')}</div>`:''}</article>`}).join('');
+$('phs').innerHTML=P.map((p,i)=>{const n=i+1;return `<article class="ph a${p[2]}"><header><span class="n">${String(n).padStart(2,'0')}</span><div><small>PHASE ${String(n).padStart(2,'0')}</small><h3>${p[0]}</h3></div><b class="h">${p[1]?p[1]+' ساعة':'ضمن Phase 12'}</b></header>${p[3].map(g=>`<h4>${g[0]}</h4><div class="ch">${ch(g[1])}</div>`).join('')}${p[4]?`<div class="lab" dir="ltr"><em>LAB</em>${p[4].split('>').join(' → ')}</div>`:''}</article>`}).join('');
 const H=P.filter(p=>p[1]).map(p=>[p[0],p[1]]).concat([['Final Capstone + Interview Preparation',14]]);
 $('hrs').innerHTML=H.map(h=>`<div class="bar"><span>${h[0]}</span><div><u style="width:${h[1]/18*100}%"></u></div><b>${h[1]}h</b></div>`).join('')+`<div class="bar" style="margin:0"><span style="color:var(--text);font-weight:800">TOTAL</span><div></div><b>144h</b></div>`;
 const T=[['Development','Git·GitHub·GitLab·Linux'],['CI/CD','Jenkins·GitLab CI'],['Security','SonarQube·Semgrep·Snyk·Gitleaks·OWASP ZAP'],['Containers','Docker·Trivy·Harbor·JFrog·ECR'],['Kubernetes','Kubernetes·Helm·RBAC·NetworkPolicy'],['GitOps','Argo CD'],['IaC','Terraform·Checkov·Terrascan'],['Cloud','AWS·IAM·VPC·KMS·CloudTrail·GuardDuty·Inspector·Security Hub'],['Observability','Prometheus·Grafana·ELK·OpenSearch'],['Security Ops','Microsoft Sentinel·KQL'],['Supply Chain','SBOM·Syft·CycloneDX·SPDX·Cosign·Sigstore']];
